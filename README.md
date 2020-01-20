@@ -2,6 +2,14 @@
 
 ## Quick start
 
+    git clone git@github.com:DominicWatts/docker-magento.git ./
+
+    mkdir magento
+
+    mkdir mysql
+
+    docker-compose up -d
+
 ### Magento install
 
 Files go into ./magento
@@ -26,6 +34,8 @@ Swap `1.9.4.3` for release version
 
     rm magento-mirror-1.9.4.3.tar.gz
 
+### Setup notes
+
 #### Magerun
 
     docker-compose run --rm cli magerun
@@ -35,3 +45,21 @@ Swap `1.9.4.3` for release version
 #### phpmyadmin
 
 http://magento.docker:8000/
+
+#### Email
+
+##### Magento Extension
+
+    https://github.com/aschroder/Magento-SMTP-Pro-Email-Extension
+
+##### MailHog
+
+    http://magento.docker:8025
+
+##### Configuration
+
+    host: mail
+    port: 1025
+    protocol: none
+    authentication: plain
+    username/password: [blank]

@@ -56,6 +56,8 @@ services:
       - MYSQL_USER=magento
       - MYSQL_PASSWORD=magento
       - MYSQL_DATABASE=magento
+    volumes:
+      - ./mysql/data:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -68,6 +70,16 @@ services:
       - MYSQL_USER=magento
       - MYSQL_PASSWORD=magento
       - MYSQL_ROOT_PASSWORD=magento 
+
+  mail:
+    image: mailhog/mailhog
+    restart: 'always'
+    ports:
+      - 1025:1025
+      - 8025:8025
+    links:
+      - web
+      - db   
 
   appdata:
     image: tianon/true
