@@ -15,3 +15,7 @@ admin / HxH5F6VtkcBN7zkB
     docker-compose run --rm cli magerun
 
     docker-compose run --rm cli magerun cache:clean
+
+#### phpmyadmin
+
+http://magento.docker:8000/
