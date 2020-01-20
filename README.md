@@ -5,3 +5,7 @@
 ### Magento install
 
 Files go into ./magento
+
+### Admin password
+
+admin / HxH5F6VtkcBN7zkB
