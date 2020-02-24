@@ -1,2 +1,4 @@
 /magento
-/mysql
+/mysql/data
+/*.zip
+/*.sql

@@ -58,6 +58,7 @@ services:
       - MYSQL_DATABASE=magento
     volumes:
       - ./mysql/data:/var/lib/mysql
+      - ./mysql/conf:/etc/mysql/conf.d
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
