@@ -18,11 +18,11 @@ Files go into ./magento
 
 Dump goes into ./magento
 
-    docker-compose run --rm cli mysql -u magento -pmagento -h db magento
+    docker-compose run --rm cli mysql --init-command="SET SESSION FOREIGN_KEY_CHECKS=0;" -u magento -pmagento -h db magento
 
     mysql> use magento;
 
-    mysql> SET autocommit=0 ; source mage_dump.sql ; COMMIT ;
+    mysql> SET autocommit=0 ; SOURCE dump.sql ; COMMIT ;
 
 ### Admin password
 
