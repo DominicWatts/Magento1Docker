@@ -14,6 +14,16 @@
 
 Files go into ./magento
 
+### DB Restore
+
+Dump goes into ./magento
+
+docker-compose run --rm cli mysql -u magento -pmagento -h db magento
+
+mysql> use magento;
+
+mysql> SET autocommit=0 ; source mage_dump.sql ; COMMIT ;
+
 ### Admin password
 
 admin / HxH5F6VtkcBN7zkB
