@@ -9,26 +9,43 @@
     mkdir mysql
 
     docker-compose up -d
-
+    
 ### Magento install
 
 Files go into ./magento
 
-### DB Restore
+#### Quickstart : Hypernode mirror
 
-Dump goes into ./magento
+Inside ./magento
 
-    docker-compose run --rm cli mysql --init-command="SET SESSION FOREIGN_KEY_CHECKS=0;" -u magento -pmagento -h db magento
+    wget -qO- https://magento.mirror.hypernode.com/releases/magento1-latest.tar.gz | tar xfz -
 
-    mysql> use magento;
+or
 
-    mysql> SET autocommit=0 ; SOURCE dump.sql ; COMMIT ;
+    wget -qO- https://magento.mirror.hypernode.com/releases/magento-1.9.4.4.tar.gz | tar xfz -
 
-### Admin password
+#### Quickstart : Magento LTS
 
-admin / HxH5F6VtkcBN7zkB
+Inside ./
 
-### Fetch files from git
+    composer.json
+    
+```json
+{
+    "require": {
+        "aydin-hassan/magento-core-composer-installer": "*",
+        "openmage/magento-lts": "19.4.6"
+    },
+    "extra": {
+        "magento-core-package-type": "magento-source",
+        "magento-root-dir": "magento"
+    }
+}
+```
+
+    composer install
+
+#### Quickstart : OpenMage git
 
 Swap `1.9.4.3` for release version
 
@@ -43,6 +60,27 @@ Swap `1.9.4.3` for release version
     rm magento-mirror-1.9.4.3 -rf
 
     rm magento-mirror-1.9.4.3.tar.gz
+
+### Database Credentials
+
+    Host: db
+    User: magento
+    Password: magento
+    Database: magento
+
+### DB Restore
+
+Dump goes into ./magento
+
+    docker-compose run --rm cli mysql --init-command="SET SESSION FOREIGN_KEY_CHECKS=0;" -u magento -pmagento -h db magento
+
+    mysql> use magento;
+
+    mysql> SET autocommit=0 ; SOURCE dump.sql ; COMMIT ;
+
+### Example admin password
+
+admin / HxH5F6VtkcBN7zkB
 
 ### Setup notes
 
